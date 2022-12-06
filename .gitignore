@@ -1,5 +1,4 @@
 .venv
-bot.db
 .vscode
 __pycache__
 bot.log
