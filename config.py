@@ -9,15 +9,15 @@ search_percent = 50
 
     
 if __name__ == "__main__":
-    config = configparser.ConfigParser()
+    if not os.path.exists(path):
+        config = configparser.ConfigParser()
+        config.add_section('Settings')
+        config.set('Settings', 'token', input('Enter bot token: '))
+        config.set('Settings', 'admin', input('Enter admin id: '))
+        config.set('Settings', 'search', '50')
 
-    config.add_section('Settings')
-    config.set('Settings', 'token', input('Enter bot token: '))
-    config.set('Settings', 'admin', input('Enter admin id: '))
-    config.set('Settings', 'search', '50')
-
-    with open(path, 'w') as config_file:
-        config.write(config_file)
+        with open(path, 'w') as config_file:
+            config.write(config_file)
 
 else:
     config = configparser.ConfigParser()
