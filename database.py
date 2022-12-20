@@ -42,13 +42,13 @@ def get_all() -> list:
     Получение всего для поиска
     """
     cur.execute("""
-    SELECT 'topic_' || id AS data, name AS text FROM topics
+    SELECT 'topic=' || id AS data, name AS text FROM topics
     UNION
-    SELECT 'topic_' || id AS data, desc AS text FROM topics
+    SELECT 'topic=' || id AS data, desc AS text FROM topics
     UNION
-    SELECT 'task_' || id AS data, name AS text FROM tasks
+    SELECT 'task=' || id AS data, name AS text FROM tasks
     UNION
-    SELECT 'task_' || id AS data, desc AS text FROM tasks
+    SELECT 'task=' || id AS data, desc AS text FROM tasks
     """)
     return cur.fetchall()
 
